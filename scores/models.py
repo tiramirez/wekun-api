@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Features(models.Model):
-    id = serializers.AutoField(read_only=True)
+    # id = models.AutoField(read_only=True)
     file_name = models.CharField(max_length=200, primary_key=True)
     void = models.DecimalField(default=0.0,max_digits=11, decimal_places=8)
     blobs = models.DecimalField(default=0.0,max_digits=11, decimal_places=8)

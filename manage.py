@@ -7,11 +7,6 @@ import sys
 def main():
     """Run administrative tasks."""
     # secret variables in .env/bin/activate
-    # global POSTGRESQL_DB_NAME, POSTGRESQL_DB_USER, POSTGRESQL_DB_PASSWORD
-
-    # POSTGRESQL_DB_NAME = os.getenv("POSTGRESQL_DB_NAME")
-    # POSTGRESQL_DB_USER = os.getenv("POSTGRESQL_DB_USER")
-    # POSTGRESQL_DB_PASSWORD = os.getenv("POSTGRESQL_DB_PASSWORD")
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wekun.settings')
     try:

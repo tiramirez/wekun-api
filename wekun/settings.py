@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'scores',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'scores',
-    'scores.apps.ScoresConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +78,6 @@ WSGI_APPLICATION = 'wekun.wsgi.application'
 DATABASES = DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        # "NAME": POSTGRESQL_DB_NAME, # imported in manage.py
-        # "USER": POSTGRESQL_DB_USER, # imported in manage.py
-        # "PASSWORD": POSTGRESQL_DB_PASSWORD, # imported in manage.py
         "NAME": os.getenv("POSTGRESQL_DB_NAME"), # imported in manage.py
         "USER": os.getenv("POSTGRESQL_DB_USER"), # imported in manage.py
         "PASSWORD": os.getenv("POSTGRESQL_DB_PASSWORD"), # imported in manage.py
