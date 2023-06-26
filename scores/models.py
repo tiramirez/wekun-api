@@ -57,6 +57,8 @@ class Features(models.Model):
     od_truck = models.DecimalField(default=0.0,max_digits=11, decimal_places=8)
     od_umbrella = models.DecimalField(default=0.0,max_digits=11, decimal_places=8)
 
+    def __str__(self):
+            return self.file_name
 
 # class PerceptionModel(models.Model):
 #     created = models.DateTimeField(auto_now_add=True)
