@@ -53,3 +53,19 @@ def image_features(request, format=None):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def image_score(request, format=None):
+    """
+    Calculates safety Score a given image
+    """
+    def get_object(self, pk):
+        try:
+            return Features.objects.get(pk=pk)
+        except Features.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        features = self.get_object(pk)
+        serializer = ScoreSeriaizer(features)
+        return Response(serializer.data)
