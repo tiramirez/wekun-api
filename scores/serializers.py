@@ -4,10 +4,12 @@ from scores.models import Features
 from decimal import Decimal
 
 class FeaturesSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Features
         fields = [
-            'file_name','void','blobs','edges','mean_bn','mean_bs','mean_h','mean_l','mean_s'
+            'id','file_name','void','blobs','edges','mean_bn','mean_bs','mean_h','mean_l','mean_s'
             ,'stdev_bn','stdev_bs','stdev_h','stdev_l','stdev_s'
             ,'bicyclist_n','bicyclist_s','building_n','building_s','car_n','car_s','fence_n','fence_s'
             ,'pavement_n','pavement_s','pedestrian_n','pedestrian_s','pole_n','pole_s','road_n','road_s'
