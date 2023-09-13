@@ -8,6 +8,9 @@ from scores.models import Features
 from scores.serializers import FeaturesSerializer
 from django.http import Http404
 
+from rest_framework.renderers import JSONRenderer
+# from rest_framework.parsers import JSONParser
+
 
 @api_view(['GET','POST'])
 def list_images(request, format=None):
@@ -59,13 +62,33 @@ def image_score(request, format=None):
     """
     Calculates safety Score a given image
     """
-    def get_object(self, pk):
+    def get_object(pk):
         try:
             return Features.objects.get(pk=pk)
         except Features.DoesNotExist:
             raise Http404
 
     if request.method == 'GET':
-        features = self.get_object(pk)
+        features = get_object(pk)
         serializer = ScoreSeriaizer(features)
         return Response(serializer.data)
+
+
+@api_view(['GET'])
+# @renderer_classes(['JSONRenderer'])
+def survey(request, format=None):
+    """
+    Calculates safety Score a given image
+    """
+    def get_random_objects():
+        try:
+            return Features.objects.order_by('?')[:2]
+        except Features.DoesNotExist:
+            raise Http404
+
+    if request.method == 'GET':
+        images = get_random_objects()
+        data = {"id":"Tomas Ramirez", "age":28}
+        # return Response(serializer.data)
+        return Response(JSONRenderer().render(data))
+

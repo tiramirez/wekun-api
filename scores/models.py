@@ -60,6 +60,14 @@ class Features(models.Model):
     def __str__(self):
             return self.file_name
 
+
+# class Answers(models.Model):
+#     img_1 = 
+    # img_2 = 
+    # question = 
+    # answer = 
+
+
 # class PerceptionModel(models.Model):
 #     created = models.DateTimeField(auto_now_add=True)
 #     updated_at = models.DateTimeField(auto_now_add=True)
